@@ -210,6 +210,10 @@
 		<arcgis_ws_stubs.local.location>
 			path to arcgis_agsws_stubs.jar
 		</arcgis_ws_stubs.local.location>
+		<gpt.version>1.2.5</gpt.version>
+		<gpt.local.location>
+			path to gpt.jar
+		</gpt.local.location>
 	</properties>
 	<profiles>
 		<profile>
@@ -258,6 +262,33 @@
 									<artifactId>arcgis_agsws_stubs</artifactId>
 									<version>${arcgis_ws_stubs.version}</version>
 									<file>${arcgis_ws_stubs.local.location}</file>
+									<packaging>jar</packaging>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>install-gpt</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-install-plugin</artifactId>
+						<version>2.4</version>
+						<executions>
+							<execution>
+								<id>install-to-repo</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>install-file</goal>
+								</goals>
+								<configuration>
+									<groupId>com.esri.gpt</groupId>
+									<artifactId>gpt</artifactId>
+									<version>${gpt.version}</version>
+									<file>${gpt.local.location}</file>
 									<packaging>jar</packaging>
 								</configuration>
 							</execution>
