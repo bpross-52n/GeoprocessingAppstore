@@ -11,13 +11,25 @@ A live demo is available at: http://apps1.glues.geo.tu-dresden.de:8080/appstore.
 
 The application is based on Java, JSP, Javascript and HTML. The modules and their functionality are briefly described here.
 
-* /WebContent - Browser part of the application (Javscript, HTML, JSP)
+* /src/main/webapp - Browser part of the application (Javscript, HTML, JSP)
   * New manage websites for geooperators: https://github.com/GeoinformationSystems/GeoprocessingAppstore/blob/master/WebContent/catalog/publication
-* /src - Server components of the application (Java)
+* /src/main/[java,resources] - Server components of the application (Java)
   * New search, upload, download, edit implemenations: https://github.com/GeoinformationSystems/GeoprocessingAppstore/tree/master/src/de/tudresden/gis
   * New schema files for editor: https://github.com/GeoinformationSystems/GeoprocessingAppstore/tree/master/src/gpt/gxe/mcp
   * New schema files for detail view and template: https://github.com/GeoinformationSystems/GeoprocessingAppstore/tree/master/src/gpt/metadata/mcp
 
+## Building
+
+Prerequisites: 
+* Download http://esri.github.io/geoportal-server/distribution/1.2.5/geoportal-1.2.5.zip
+* Unzip archive, then unzip ../Web Applications/Geoportal/geoportal.war
+* Copy the paths to ../geoportal/WEB-INF/lib/[arcgis_agsws_stubs.jar, arcgis_ws_runtime.jar, gpt-1.2.5.jar]
+* Execute the following maven commands:
+  * mvn install:install-file -Dfile=path-to-arcgis_agsws_stubs.jar -DgroupId=com.esri.arcgisws -DartifactId=arcgis_agsws_stubs -Dpackaging=jar -Dversion=10.0.0
+  * mvn install:install-file -Dfile=path-to-arcgis_ws_runtime.jar -DgroupId=com.esri.arcgisws -DartifactId=arcgis_ws_runtime -Dpackaging=jar -Dversion=10.0.0
+  * mvn install:install-file -Dfile=path-to-gpt-1.2.5.jar -DgroupId=com.esri.gpt -DartifactId=gpt -Dpackaging=jar -Dversion=1.2.5
+You should now be able to build the Geoprocessing Appstore using the command mvn install 
+  
 ## Installation
 
 Information about the installation can be found here:
