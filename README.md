@@ -28,6 +28,7 @@ Prerequisites:
   * mvn install:install-file -Dfile=path-to-arcgis_agsws_stubs.jar -DgroupId=com.esri.arcgisws -DartifactId=arcgis_agsws_stubs -Dpackaging=jar -Dversion=10.0.0
   * mvn install:install-file -Dfile=path-to-arcgis_ws_runtime.jar -DgroupId=com.esri.arcgisws -DartifactId=arcgis_ws_runtime -Dpackaging=jar -Dversion=10.0.0
   * mvn install:install-file -Dfile=path-to-gpt-1.2.5.jar -DgroupId=com.esri.gpt -DartifactId=gpt -Dpackaging=jar -Dversion=1.2.5
+
 You should now be able to build the Geoprocessing Appstore using the command mvn install 
   
 ## Installation
